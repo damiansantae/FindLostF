@@ -1,0 +1,83 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title>
+        Estoy perdido
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content >
+
+      <div *ngIf=!hasParty>
+
+          <div class="text-wrap font center"> Pulse el siguiente boton para generar un identificador propio y asi compartir su ubicación con quien quiera</div>
+          <ion-item class="id center">
+             <button
+            ion-button clear large icon-only
+            (click)="createParty()">
+      
+           Iniciar
+          </button></ion-item>
+      
+          </div>
+
+<div *ngIf=hasParty>
+   <div class="text-wrap font center">Comparte tu identificador para que tus amigos te encuentren</div>
+    <ion-item class="id center">{{partyid}}</ion-item>
+  
+
+
+    <ion-item class="center">
+        <button
+        ion-button clear large icon-only
+        (click)="refreshId()">
+
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+
+      <button [disabled]="isButtonHidden"  [color]="isActiveState == true ? 'danger' : 'success'"
+      ion-button large icon-only
+      (click)="changePartyState()">
+
+      <ion-icon name="power"></ion-icon>
+    </button>
+          
+    </ion-item> 
+
+   <div class="text-wrap font center">O compartelo directamente con tu aplicación de mensajería favorita</div>
+   
+   <ion-item class="center">
+      <button 
+      ion-button clear large icon-only
+      >
+
+      <ion-icon name="share"></ion-icon>
+      </button>
+    </ion-item> 
+  </div>
+    <div class="text-wrap font">Usuarios que te buscan</div>
+    <div *ngIf="joinedUsers.length ==0"  class="text-wrap font center">No existe ningun usuario buscándolo</div>
+
+    <ion-list>
+      <ion-item-sliding
+        
+        text-wrap
+        *ngFor="let searcher of joinedUsers"> 
+      >  
+        <ion-item>
+          <h2>{{searcher.email}}</h2>
+
+        </ion-item>
+  
+        <ion-item-options side="left">
+          <button ion-button color="danger"
+                  (tap)="removeSearcher(searcher)">
+            <ion-icon name="eye"></ion-icon>
+          </button>
+  
+        </ion-item-options>
+
+      </ion-item-sliding>
+    </ion-list>
+</ion-content>
+

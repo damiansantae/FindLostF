@@ -1,0 +1,19 @@
+<ion-content padding>
+    <div text-center="true" class="centered">
+    <form [formGroup]="resetPasswordForm" (submit)="resetPassword()" novalidate>
+  
+      <ion-item margin-bottom>
+        <ion-label stacked>Email</ion-label>
+        <ion-input formControlName="email" type="email" placeholder="Your email address"
+                   [class.invalid]="!resetPasswordForm.controls.email.valid && blur">
+        </ion-input>
+      </ion-item>
+  
+      <button ion-button block type="submit" [disabled]="!resetPasswordForm.valid">
+        Reset your Password
+      </button>
+  
+    </form>
+    </div>
+  </ion-content>
+  

@@ -1,14 +1,31 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+<ion-content>
+
+ 
+  <div id="distance"><h1>{{distance}}</h1></div>
+
+ 
+ <img *ngIf="orientated" id="arrow" src="assets/imgs/arrow.png" width="200" height="200">
+ <img *ngIf="toRight && !orientated && toRightType==3"  id="indicator-right" src="assets/imgs/indicator-right.png" >
+ <img *ngIf="toRight && !orientated && toRightType==2"  id="indicator-right" src="assets/imgs/indicator-right+1.png" >
+ <img *ngIf="toRight && !orientated && toRightType==1"  id="indicator-right" src="assets/imgs/indicator-right+2.png" >
+ <img *ngIf="toRight && !orientated && toRightType==0"  id="indicator-right" src="assets/imgs/indicator-right+3.png" >
+ 
+ 
+
+ <img *ngIf="!toRight && !orientated && toLeftType==3" id="indicator-left" src="assets/imgs/indicator-left.png" >
+ <img *ngIf="!toRight && !orientated && toLeftType==2" id="indicator-left" src="assets/imgs/indicator-left+1.png" >
+ <img *ngIf="!toRight && !orientated && toLeftType==1" id="indicator-left" src="assets/imgs/indicator-left+2.png" >
+ <img *ngIf="!toRight && !orientated && toLeftType==0" id="indicator-left" src="assets/imgs/indicator-left+3.png" >
+ 
+  <ion-fab right top small>
+      <button (click)="switchCamera()"ion-fab color="light"><ion-icon name="switch"></ion-icon></button>
+  </ion-fab>
+
+  <ion-fab right bottom small>
+      <button (click)="refresh()" ion-fab color="light"><ion-icon name="archive"></ion-icon></button>
+  </ion-fab>
+
+  
+
 </ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+       Login
+  
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content class='login'>
+
+    <div class="login-img">
+ <img class ="centered"  src="assets/imgs/wally_phone.jpg" >
+</div>
+  
+    <div text-center="true" class="centered">
+      <form
+        *ngIf="displayForm"
+        [formGroup]="form"
+        (ngSubmit)="logIn()">
+  
+  
+        <ion-item margin-bottom>
+          <ion-label color="secondary" floating>Email</ion-label>
+          <ion-input type="email"
+                     formControlName="email" [class.invalid]="!form.controls.email.valid && blur"
+                     value=" damiansantae@gmail.com">
+  
+          </ion-input>
+  
+        </ion-item>
+  
+  
+        <ion-item margin-bottom>
+          <ion-label color="secondary" floating>Password</ion-label>
+          <ion-input
+            type="password"
+            formControlName="password" [class.invalid]="!form.controls.password.valid && blur" value="123456">
+          </ion-input>
+  
+        </ion-item>
+  
+  
+        <button
+          ion-button round
+          color="primary"
+          text-center
+          block [disabled]="!form.valid">Log In
+        </button>
+  
+  
+        <!--<p>{{ displayError }}</p>-->
+      </form>
+  
+  
+    <button ion-button block clear (click)="goToSignup()" class="input aux-btn">
+      Create a new account
+    </button>
+  
+    <button ion-button block clear (click)="goToResetPwd()" class="input aux-btn">
+      I forgot my password
+    </button>
+  
+    </div>
+  
+  
+  </ion-content>
+  

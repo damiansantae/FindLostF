@@ -1,3 +1,28 @@
 page-home {
 
+    #arrow {
+        position: absolute;
+        bottom: 0;
+        left: 25%;
+        opacity: 0.5;
+    }
+
+    #distance {
+        position: absolute;
+        top: 10;
+        left: 10;
+    }
+     #indicator-left {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    #indicator-right {
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+
 }

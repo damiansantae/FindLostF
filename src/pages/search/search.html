@@ -1,0 +1,59 @@
+<ion-header>
+    <ion-navbar color="dark">
+      <ion-title>
+        Search
+  
+      </ion-title>
+      <ion-buttons end>
+        <button
+          ion-button
+          color="primary"
+          (click)="askForLogOut()">
+  
+         
+        </button>
+      </ion-buttons>
+    </ion-navbar>
+  </ion-header>
+
+<ion-content padding>
+  <ion-list 
+  text-wrap
+  *ngFor="let friend of lostFriends"> 
+
+      <ion-item>
+      
+        <h2>{{friend.email}}</h2>
+        <ion-note item-end (tap)="goToFriend()">Search it! ></ion-note>
+
+        <button 
+                ion-button
+                text-center
+                color="danger"
+                (click)="removeFriend(friend)">Delete
+        </button>
+
+      </ion-item>
+    
+
+     
+  </ion-list>
+
+  <ion-footer>
+    <ion-toolbar color="primary">
+    <ion-searchbar cancelButtonText="Aceptar" animated=true
+    [(ngModel)]="input"
+    showCancelButton=true
+placeholder ="Escribe el identificador de tu amigo para buscarlo"
+
+(ionCancel)="searchParty(input)"
+
+>
+</ion-searchbar>
+
+</ion-toolbar>
+<ion-spinner *ngIf='partySearching' name="bubbles"></ion-spinner>
+
+
+  </ion-footer>
+</ion-content>

@@ -1,0 +1,29 @@
+
+
+page-login{
+  background-color: #2c2c54;
+    .centered {
+      position: relative;
+      padding-top: 25%;
+      padding-right: 10%;
+      padding-left: 10%;
+    }
+  
+    .invalid {
+      border-bottom: 1px solid #FF6153;
+    }
+    .input {
+      margin-bottom: 10px;
+   
+    }
+    .aux-btn {
+      color: white;
+    }
+    .login-img{
+      height: 40;
+      width: 40;
+    }
+  }
+  
+  
+  
